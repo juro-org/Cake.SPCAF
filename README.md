@@ -21,7 +21,7 @@ Alias to assist with running SPCAF from Cake build scripts
 
 ## Usage
 
-This addin exposes the functionality of [SPCAF][SPCAF] to the Cake DSL by being a very thin wrapper around its command line interface; this means that you can use Cake.SPCAF in the same way as you would normally use [SPCAF CLI][SPCAFCLI].
+This addin exposes the functionality of [SPCAF] to the Cake DSL by being a very thin wrapper around its command line interface; this means that you can use Cake.SPCAF in the same way as you would normally use [SPCAF CLI].
 
 ```cs
 #addin nuget:?package=Cake.SPCAF&version={Version}
@@ -47,8 +47,8 @@ Small note: If editing the Readme, please conform to the [standard-readme][] spe
 
 [MIT License © Jürgen Rosenthal-Buroh][license]
 
-[SPCAF]:(https://rencore.com/products/code/)
-[SPCAFCLI]:(https://go.rencore.com/support/how-to-run-spcaf-from-command-line)
+[SPCAF]:https://rencore.com/products/code/
+[SPCAF CLI]:https://go.rencore.com/support/how-to-run-spcaf-from-command-line
 [contrib-covenant]: https://www.contributor-covenant.org/version/1/4/code-of-conduct
 [maintainer]: https://github.com/JuergenRB
 [nuget]: https://nuget.org/packages/Cake.SPCAF
