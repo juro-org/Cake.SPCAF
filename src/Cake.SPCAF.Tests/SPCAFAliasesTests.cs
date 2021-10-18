@@ -29,15 +29,37 @@ namespace Cake.SPCAF.Tests
     using Cake.Core.IO;
     using Cake.Testing;
     using NUnit.Framework;
+    using Shouldly;
 
     [TestFixture]
     [TestOf(typeof(SPCAFAliases))]
     public class SPCAFAliasesTests
     {
         [Test]
-        public void Need_More_Unit_Test_Implementations()
+        public void JustCallSPCAF()
         {
-            Assert.That(false, Is.True, "More unit tests need to be implemented for aliases class");
+            var fixture = new SPCAFAliasesFixture();
+
+            fixture.Settings = null;
+            var actual = fixture.Run();
+
+            actual.Args.ShouldBe("");
+        }
+
+        [Test]
+        public void SPCAF_SimpleDemo()
+        {
+            var fixture = new SPCAFAliasesFixture();
+
+            //spcaf.exe -i "C:\wspfiles" -r "HTML;XML" -o "C:\outputdir\outputfilename.html"
+            fixture.Settings = new SPCAFSettings();
+            fixture.Settings.Report.Add(Enums.Report.Html);
+            fixture.Settings.Report.Add(Enums.Report.Xml);
+            fixture.Settings.Inputfiles.Add(new DirectoryPath(@"C:/wspfiles"));
+            fixture.Settings.Output = new FilePath(@"C:/outputdir/outputfilename.html");
+            var actual = fixture.Run();
+
+            actual.Args.ShouldBe(@"-r ""HTML;XML"" -o ""C:/outputdir/outputfilename.html"" -i ""C:/wspfiles""");
         }
     }
 }

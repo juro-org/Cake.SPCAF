@@ -32,6 +32,7 @@ namespace Cake.SPCAF
 
     public sealed class SPCAFRunner : Tool<SPCAFSettings>
     {
+        private ICakeEnvironment environment;
         public SPCAFRunner(
             IFileSystem fileSystem,
             ICakeEnvironment environment,
@@ -39,6 +40,7 @@ namespace Cake.SPCAF
             IToolLocator tools)
             : base(fileSystem, environment, processRunner, tools)
         {
+            this.environment = environment;
         }
 
         public void Run(SPCAFSettings settings)
@@ -62,12 +64,15 @@ namespace Cake.SPCAF
             return "SPCAF";
         }
 
-        private static ProcessArgumentBuilder GetArguments(SPCAFSettings settings)
+        private ProcessArgumentBuilder GetArguments(SPCAFSettings settings)
         {
+            if(settings == null)
+            {
+                throw new ArgumentNullException(nameof(settings));
+            }
+
             var builder = new ProcessArgumentBuilder();
-
-            // TODO: Add the necessary arguments based on the settings class
-
+            settings.Evaluate(builder, environment);
             return builder;
         }
     }

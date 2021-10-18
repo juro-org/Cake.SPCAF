@@ -40,7 +40,7 @@ namespace Cake.SPCAF.Tests
 
             Action result = () => fixture.Run();
 
-            Assert.That(result, Throws.ArgumentNullException.With.Message.Contains("message"));
+            Assert.That(result, Throws.ArgumentNullException);
         }
 
         [Test]
@@ -48,17 +48,11 @@ namespace Cake.SPCAF.Tests
         {
             var fixture = new SPCAFRunnerFixture();
             fixture.GivenDefaultToolDoNotExist();
-            const string expectedMessage = "SPCAF: Could not locate executable";
+            const string expectedMessage = "SPCAF: Could not locate executable.";
 
             Action result = () => fixture.Run();
 
             Assert.That(result, Throws.TypeOf<CakeException>().With.Message.EqualTo(expectedMessage));
-        }
-
-        [Test]
-        public void Need_More_Unit_Test_Implementations()
-        {
-            Assert.That(false, Is.True, "More unit tests need to be implemented for the runner class");
         }
     }
 }

@@ -21,8 +21,8 @@ namespace Cake.SPCAF.Tests
         {
             get
             {
-                yield return (s => s.Report.Add(Enums.Report.Html), "-r \".html\"");
-                yield return (s => { s.Report.Add(Enums.Report.Html); s.Report.Add(Enums.Report.Xml); }, "-r \".html;.xml\"");
+                yield return (s => s.Report.Add(Enums.Report.Html), "-r \"HTML\"");
+                yield return (s => { s.Report.Add(Enums.Report.Html); s.Report.Add(Enums.Report.Xml); }, "-r \"HTML;XML\"");
                 yield return (s => s.Output = new FilePath("/File1.txt"), "-o \"/File1.txt\"");
                 yield return (s => { s.Inputfiles.Add(new FilePath("/File1.txt")); }, "-i \"/File1.txt\"");
                 yield return (s => { s.Inputfiles.Add(new FilePath("/File1.txt")); s.Inputfiles.Add(new DirectoryPath("/Directory")); }, "-i \"/File1.txt\";\"/Directory\"");
