@@ -26,9 +26,17 @@ This addin exposes the functionality of [SPCAF] to the Cake DSL by being a very 
 ```cs
 #addin nuget:?package=Cake.SPCAF&version={Version}
 
-Task("MyTask").Does(() => {
-  SPCAF();
-});
+Task("SPCAF-Example")
+    .Does(() =>
+    {
+        var settings = new SPCAFSettings();
+        settings.Report.Add(Cake.SPCAF.Enums.Report.Xml);
+        settings.Report.Add(Cake.SPCAF.Enums.Report.Html);
+        //Add wsp file to folder or change filepath
+        settings.Inputfiles.Add(new FilePath(@".\example\solution_example.wsp"));
+        settings.Output = new FilePath(@".\example\outputfilename.html");
+        SPCAF(settings);
+    });
 ```
 
 ## Maintainer
