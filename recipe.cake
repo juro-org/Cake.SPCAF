@@ -18,6 +18,13 @@ BuildParameters.SetParameters(
 
 BuildParameters.PrintParameters(Context);
 
-ToolSettings.SetToolSettings(context: Context);
+ToolSettings.SetToolSettings(context: Context,
+							dupFinderExcludePattern: new string[] {
+                            BuildParameters.RootDirectoryPath + "/**/Cake.SPCAF.Tests/**/*.cs",
+                            BuildParameters.RootDirectoryPath + "/**/Cake.SPCAF/**/*.AssemblyInfo.cs",
+							BuildParameters.RootDirectoryPath + "/**/Cake.SPCAF/SPCAFSettings.cs"	
+							}						
+);
+
 
 Build.RunDotNetCore();
