@@ -26,6 +26,7 @@ namespace Cake.SPCAF
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using Cake.Core;
     using Cake.Core.IO;
     using Cake.Core.Tooling;
@@ -51,6 +52,14 @@ namespace Cake.SPCAF
             }
 
             this.Run(settings, GetArguments(settings));
+        }
+
+        protected override IEnumerable<FilePath> GetAlternativeToolPaths(SPCAFSettings settings)
+        {
+            var toolPaths = base.GetAlternativeToolPaths(settings);
+
+            var workDir = new DirectoryPath(@"C:\\Program Files (x86)\Rencore\SPCAF");
+            return toolPaths.Union(new string[] { "spcaf.exe" }.Select(x => workDir.GetFilePath(new FilePath(x))));
         }
 
         protected override IEnumerable<string> GetToolExecutableNames()

@@ -32,6 +32,7 @@ namespace Cake.SPCAF
     using Cake.Core;
     using Cake.Core.IO;
     using Cake.Core.Tooling;
+    using Cake.SPCAF.Extensions;
 
     public sealed class SPCAFSettings : ToolSettings
     {
@@ -156,11 +157,12 @@ namespace Cake.SPCAF
                         return;
                     }
 
+
                     if (p.PropertyType == typeof(FilePath))
                     {
                         var value = p.GetValue(this) as FilePath;
                         if (value == null) { return; }
-                        builder.Append(string.Format("-{0} {1}", attr.Name, value.MakeAbsolute(environment).FullPath.Quote()));
+                        builder.Append(string.Format("-{0} {1}", attr.Name, CakePath.FullPathQuote(value, environment)));
                         return;
                     }
 
@@ -168,11 +170,9 @@ namespace Cake.SPCAF
                     {
                         var value = p.GetValue(this) as DirectoryPath;
                         if (value == null) { return; }
-                        builder.Append(string.Format("-{0} {1}", attr.Name, value.MakeAbsolute(environment).FullPath.Quote()));
+                        builder.Append(string.Format("-{0} {1}", attr.Name, CakePath.FullPathQuote(value, environment)));
                         return;
                     }
-
-
 
                     if (p.PropertyType.GenericTypeArguments.Length > 0 && p.PropertyType.GenericTypeArguments[0].BaseType == typeof(Enums.EnumBaseType))
                     {
@@ -188,7 +188,7 @@ namespace Cake.SPCAF
                         var value = p.GetValue(this) as IEnumerable<Path>;
                         if (value == null || !value.Any()) { return; }
 
-                        var fullPaths = value.Select(s => s.FullPath.Quote()).ToArray();
+                        var fullPaths = value.Select(s => CakePath.FullPathQuote(s, environment).Quote()).ToArray();
 
                         builder.Append(string.Format("-{0} {1}", attr.Name, string.Join(";", fullPaths)));
                         return;

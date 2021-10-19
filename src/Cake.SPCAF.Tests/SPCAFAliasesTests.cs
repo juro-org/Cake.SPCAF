@@ -59,7 +59,7 @@ namespace Cake.SPCAF.Tests
             fixture.Settings.Output = new FilePath(@"C:/outputdir/outputfilename.html");
             var actual = fixture.Run();
 
-            actual.Args.ShouldBe(@"-r ""HTML;XML"" -o ""C:/outputdir/outputfilename.html"" -i ""C:/wspfiles""");
+            actual.Args.ShouldBe(@"-r ""HTML;XML"" -o ""C:\outputdir\outputfilename.html"" -i ""C:\wspfiles""");
         }
     }
 }

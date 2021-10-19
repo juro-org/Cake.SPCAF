@@ -23,13 +23,13 @@ namespace Cake.SPCAF.Tests
             {
                 yield return (s => s.Report.Add(Enums.Report.Html), "-r \"HTML\"");
                 yield return (s => { s.Report.Add(Enums.Report.Html); s.Report.Add(Enums.Report.Xml); }, "-r \"HTML;XML\"");
-                yield return (s => s.Output = new FilePath("/File1.txt"), "-o \"/File1.txt\"");
-                yield return (s => { s.Inputfiles.Add(new FilePath("/File1.txt")); }, "-i \"/File1.txt\"");
-                yield return (s => { s.Inputfiles.Add(new FilePath("/File1.txt")); s.Inputfiles.Add(new DirectoryPath("/Directory")); }, "-i \"/File1.txt\";\"/Directory\"");
+                yield return (s => s.Output = new FilePath("/File1.txt"), "-o \"\\File1.txt\"");
+                yield return (s => { s.Inputfiles.Add(new FilePath("/File1.txt")); }, "-i \"\\File1.txt\"");
+                yield return (s => { s.Inputfiles.Add(new FilePath("/File1.txt")); s.Inputfiles.Add(new DirectoryPath("/Directory")); }, "-i \"\\File1.txt\";\"\\Directory\"");
                 yield return (s => s.Filters = "*.wsp,*.dll", "-f *.wsp,*.dll");
-                yield return (s => s.Settings = new FilePath("/File1.txt"), "-s \"/File1.txt\"");
-                yield return (s => s.Tempdir = new DirectoryPath("/Directory"), "-t \"/Directory\"");
-                yield return (s => s.LogFile = new FilePath("/File1.txt"), "-l \"/File1.txt\"");
+                yield return (s => s.Settings = new FilePath("/File1.txt"), "-s \"\\File1.txt\"");
+                yield return (s => s.Tempdir = new DirectoryPath("/Directory"), "-t \"\\Directory\"");
+                yield return (s => s.LogFile = new FilePath("/File1.txt"), "-l \"\\File1.txt\"");
                 yield return (s => s.Verbosity = Enums.Verbosity.Normal, "-v Normal");
                 yield return (s => s.Recursive = true, "-c");
                 yield return (s => s.SkipProjectCreation = true, "-p");
