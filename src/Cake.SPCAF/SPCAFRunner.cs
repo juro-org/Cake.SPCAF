@@ -24,16 +24,17 @@
 
 namespace Cake.SPCAF
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using Cake.Core;
     using Cake.Core.IO;
     using Cake.Core.Tooling;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public sealed class SPCAFRunner : Tool<SPCAFSettings>
     {
         private ICakeEnvironment environment;
+
         public SPCAFRunner(
             IFileSystem fileSystem,
             ICakeEnvironment environment,
@@ -75,7 +76,7 @@ namespace Cake.SPCAF
 
         private ProcessArgumentBuilder GetArguments(SPCAFSettings settings)
         {
-            if(settings == null)
+            if (settings == null)
             {
                 throw new ArgumentNullException(nameof(settings));
             }

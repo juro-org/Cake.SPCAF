@@ -24,10 +24,7 @@
 
 namespace Cake.SPCAF.Tests
 {
-    using System;
-    using Cake.Core;
     using Cake.Core.IO;
-    using Cake.Testing;
     using NUnit.Framework;
     using Shouldly;
 

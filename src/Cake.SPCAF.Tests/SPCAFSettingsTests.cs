@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Cake.SPCAF.Tests
 {
     using Cake.Core.IO;

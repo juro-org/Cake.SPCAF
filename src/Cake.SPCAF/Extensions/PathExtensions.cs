@@ -1,8 +1,6 @@
 using Cake.Core;
 using Cake.Core.IO;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Cake.SPCAF.Extensions
 {

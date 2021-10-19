@@ -24,15 +24,15 @@
 
 namespace Cake.SPCAF
 {
+    using Cake.Core;
+    using Cake.Core.IO;
+    using Cake.Core.Tooling;
+    using Cake.SPCAF.Extensions;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
     using System.Runtime.Serialization;
-    using Cake.Core;
-    using Cake.Core.IO;
-    using Cake.Core.Tooling;
-    using Cake.SPCAF.Extensions;
 
     public sealed class SPCAFSettings : ToolSettings
     {
@@ -41,7 +41,6 @@ namespace Cake.SPCAF
             Report = new List<Enums.Report>();
             Inputfiles = new List<Path>();
         }
-
 
         /// <summary>
         /// Report generator that will be used to generate the output file.Visual Studio compatible console output will be generated regardless of this argument.
@@ -157,7 +156,6 @@ namespace Cake.SPCAF
                         return;
                     }
 
-
                     if (p.PropertyType == typeof(FilePath))
                     {
                         var value = p.GetValue(this) as FilePath;
@@ -178,7 +176,7 @@ namespace Cake.SPCAF
                     {
                         var value = p.GetValue(this) as IEnumerable<Enums.EnumBaseType>;
                         if (value == null || !value.Any()) { return; }
-                        
+
                         builder.Append(string.Format("-{0} \"{1}\"", attr.Name, string.Join(";", value)));
                         return;
                     }

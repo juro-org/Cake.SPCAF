@@ -26,7 +26,6 @@ namespace Cake.SPCAF
 {
     using Cake.Core;
     using Cake.Core.Annotations;
-    using Cake.Core.IO;
 
     [CakeAliasCategory("SPCAF")]
     public static class SPCAFAliases
