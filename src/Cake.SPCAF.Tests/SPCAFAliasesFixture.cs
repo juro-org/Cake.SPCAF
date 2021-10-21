@@ -55,7 +55,7 @@ namespace Cake.SPCAF.Tests
         {
             if (Settings == null)
             {
-                SPCAFAliases.SPCAF(_context);
+                SPCAFAliases.SPCAF(_context, s => { });
             }
             else
             {
