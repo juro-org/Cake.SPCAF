@@ -57,7 +57,12 @@ namespace Cake.SPCAF
 
         protected override IEnumerable<FilePath> GetAlternativeToolPaths(SPCAFSettings settings)
         {
-            var toolPaths = base.GetAlternativeToolPaths(settings);
+            var toolPaths = base.GetAlternativeToolPaths(settings).ToList();
+
+            if (settings.ToolPath != null)
+            {
+                toolPaths.Add(settings.ToolPath);
+            }
 
             var workDir = new DirectoryPath(@"C:\\Program Files (x86)\Rencore\SPCAF");
             return toolPaths.Union(new string[] { "spcaf.exe" }.Select(x => workDir.GetFilePath(new FilePath(x))));

@@ -26,14 +26,18 @@ namespace Cake.SPCAF
 {
     using Cake.Core;
     using Cake.Core.Annotations;
+    using System;
 
     [CakeAliasCategory("SPCAF")]
     public static class SPCAFAliases
     {
         [CakeMethodAlias]
-        public static void SPCAF(this ICakeContext context)
+        public static void SPCAF(this ICakeContext context, Action<FluentSPCAFSettings> config)
         {
-            SPCAF(context, new SPCAFSettings());
+            var settings = new SPCAFSettings();
+            var fluentSettings = new FluentSPCAFSettings(settings);
+            config(fluentSettings);
+            SPCAF(context, settings);
         }
 
         [CakeMethodAlias]
