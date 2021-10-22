@@ -39,11 +39,11 @@ namespace Cake.SPCAF
         public SPCAFSettings()
         {
             Report = new List<Enums.Report>();
-            Inputfiles = new List<Path>();
+            InputFiles = new List<Path>();
         }
 
         /// <summary>
-        /// Report generator that will be used to generate the output file.Visual Studio compatible console output will be generated regardless of this argument.
+        /// Report generator that will be used to generate the output file. Visual Studio compatible console output will be generated regardless of this argument.
         /// </summary>
         [DataMember(Name = "r")]
         public List<Enums.Report> Report { get; }
@@ -56,10 +56,9 @@ namespace Cake.SPCAF
 
         /// <summary>
         /// Required.Location of files to be included in the analysis.
-        ///  Files can be separated by a semicolon(;). If the file path or name has spaces in you must place it in quotes ("").
         /// </summary>
         [DataMember(Name = "i")]
-        public List<Path> Inputfiles { get; }
+        public List<Path> InputFiles { get; }
 
         /// <summary>
         /// List of regular expressions, separated by a semicolon which is applied as filters for the input files.Helpful if argument input files is a directory.Only the input files which match the filter are analyzed.
@@ -68,7 +67,7 @@ namespace Cake.SPCAF
         public string Filters { get; set; }
 
         /// <summary>
-        /// Name of SPCAF ruleset file.Possible ruleset files are stored in the installation folder of SPCAF, folder "Rulesets".
+        /// Name of SPCAF ruleset file.
         /// </summary>
         [DataMember(Name = "s")]
         public FilePath Settings { get; set; }
@@ -77,10 +76,10 @@ namespace Cake.SPCAF
         /// Directory into which all temporary files are extract.
         /// </summary>
         [DataMember(Name = "t")]
-        public DirectoryPath Tempdir { get; set; }
+        public DirectoryPath TempDir { get; set; }
 
         /// <summary>
-        /// The path where the log file should be written to
+        /// The path where the log file should be written to.
         /// </summary>
         [DataMember(Name = "l")]
         public FilePath LogFile { get; set; }

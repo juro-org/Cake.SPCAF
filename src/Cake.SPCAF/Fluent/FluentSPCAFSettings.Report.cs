@@ -20,55 +20,51 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-namespace Cake.SPCAF.Builder
+namespace Cake.SPCAF
 {
     /// <summary>
-    /// Extensions for SPCAFSetting to generate fluent api.
+    /// Wrapper for SPCAFSetting to generate fluent api.
     /// </summary>
-    public static partial class SPCAFSettingsExtensions
+    public partial class FluentSPCAFSettings
     {
         /// <summary>
         /// Csv generator that will be used to generate the output file.
         /// </summary>
-        /// <param name="this">The SPCAFSettings for the command build.</param>
-        /// <returns>The SPCAFSettings instance for fluent re-use.</returns>
-        public static SPCAFSettings WithCsvReport(this SPCAFSettings @this)
+        /// <returns>The FluentSPCAFSettings instance for fluent re-use.</returns>
+        public FluentSPCAFSettings WithCsvReport()
         {
-            @this.Report.Add(Enums.Report.Csv);
-            return @this;
+            this.settings.Report.Add(Enums.Report.Csv);
+            return this;
         }
 
         /// <summary>
         /// Html generator that will be used to generate the output file.
         /// </summary>
-        /// <param name="this">The SPCAFSettings for the command build.</param>
-        /// <returns>The SPCAFSettings instance for fluent re-use.</returns>
-        public static SPCAFSettings WithHtmlReport(this SPCAFSettings @this)
+        /// <returns>The FluentSPCAFSettings instance for fluent re-use.</returns>
+        public FluentSPCAFSettings WithHtmlReport()
         {
-            @this.Report.Add(Enums.Report.Html);
-            return @this;
+            this.settings.Report.Add(Enums.Report.Html);
+            return this;
         }
 
         /// <summary>
         /// None generator. Visual Studio compatible console output will be generated regardless of this argument.
         /// </summary>
-        /// <param name="this">The SPCAFSettings for the command build.</param>
-        /// <returns>The SPCAFSettings instance for fluent re-use.</returns>
-        public static SPCAFSettings WithNoneReport(this SPCAFSettings @this)
+        /// <returns>The FluentSPCAFSettings instance for fluent re-use.</returns>
+        public FluentSPCAFSettings WithNoneReport()
         {
-            @this.Report.Add(Enums.Report.None);
-            return @this;
+            this.settings.Report.Add(Enums.Report.None);
+            return this;
         }
 
         /// <summary>
         /// XML generator that will be used to generate the output file.
         /// </summary>
-        /// <param name="this">The SPCAFSettings for the command build.</param>
-        /// <returns>The SPCAFSettings instance for fluent re-use.</returns>
-        public static SPCAFSettings WithXMLReport(this SPCAFSettings @this)
+        /// <returns>The FluentSPCAFSettings instance for fluent re-use.</returns>
+        public FluentSPCAFSettings WithXmlReport()
         {
-            @this.Report.Add(Enums.Report.Xml);
-            return @this;
+            this.settings.Report.Add(Enums.Report.Xml);
+            return this;
         }
     }
 }

@@ -25,6 +25,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+            <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+            <!-- We use the value of AssemblyName to declare the value of the attribute -->
+        </AssemblyAttribute>
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Cake.Core" Version="1.0.0" PrivateAssets="All" />
         <PackageReference Include="stylecop.analyzers" Version="1.1.118">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>

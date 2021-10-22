@@ -52,7 +52,7 @@ namespace Cake.SPCAF.Tests
             fixture.Settings = new SPCAFSettings();
             fixture.Settings.Report.Add(Enums.Report.Html);
             fixture.Settings.Report.Add(Enums.Report.Xml);
-            fixture.Settings.Inputfiles.Add(new DirectoryPath(@"C:/wspfiles"));
+            fixture.Settings.InputFiles.Add(new DirectoryPath(@"C:/wspfiles"));
             fixture.Settings.Output = new FilePath(@"C:/outputdir/outputfilename.html");
             var actual = fixture.Run();
 

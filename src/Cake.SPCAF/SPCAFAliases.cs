@@ -32,10 +32,11 @@ namespace Cake.SPCAF
     public static class SPCAFAliases
     {
         [CakeMethodAlias]
-        public static void SPCAF(this ICakeContext context, Action<SPCAFSettings> config)
+        public static void SPCAF(this ICakeContext context, Action<FluentSPCAFSettings> config)
         {
             var settings = new SPCAFSettings();
-            config(settings);
+            var fluentSettings = new FluentSPCAFSettings(settings);
+            config(fluentSettings);
             SPCAF(context, settings);
         }
 
