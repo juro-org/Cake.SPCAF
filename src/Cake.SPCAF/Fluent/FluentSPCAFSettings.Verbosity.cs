@@ -40,7 +40,6 @@ namespace Cake.SPCAF
         /// <summary>
         /// Set the amount of information to "minimal".
         /// </summary>
-        /// <param name="this">The SPCAFSettings for the command build.</param>
         /// <returns>The FluentSPCAFSettings instance for fluent re-use.</returns>
         public FluentSPCAFSettings WithMinimalVerbosity()
         {
@@ -51,7 +50,6 @@ namespace Cake.SPCAF
         /// <summary>
         /// Set the amount of information to "normal".
         /// </summary>
-        /// <param name="this">The SPCAFSettings for the command build.</param>
         /// <returns>The FluentSPCAFSettings instance for fluent re-use.</returns>
         public FluentSPCAFSettings WithNormalVerbosity()
         {
@@ -62,7 +60,6 @@ namespace Cake.SPCAF
         /// <summary>
         /// Set the amount of information to "quiet".
         /// </summary>
-        /// <param name="this">The SPCAFSettings for the command build.</param>
         /// <returns>The FluentSPCAFSettings instance for fluent re-use.</returns>
         public FluentSPCAFSettings WithQuietVerbosity()
         {

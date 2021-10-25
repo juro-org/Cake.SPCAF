@@ -20,36 +20,47 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-namespace Cake.SPCAF
+namespace Cake.SPCAF.Extensions
 {
     using System;
-    using Cake.Core.Tooling;
+    using Cake.Core;
+    using Cake.Core.IO;
 
     /// <summary>
-    /// Wrapper for SPCAFSetting to generate fluent api.
+    /// Helper class for cake Path.
     /// </summary>
-    public partial class FluentSPCAFSettings
+    internal static class CakePath
     {
-        private SPCAFSettings settings;
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="FluentSPCAFSettings"/> class.
+        /// Makes the path absolute (if relative) using the current working directory.
         /// </summary>
-        /// <param name="settings">SPCAFSetting.</param>
-        internal FluentSPCAFSettings(SPCAFSettings settings)
+        /// <param name="path">The path.</param>
+        /// <param name="envoriment">The enviroment.</param>
+        /// <returns>An absolute path.</returns>
+        internal static string AbsolutePath(Path path, ICakeEnvironment envoriment)
         {
-            this.settings = settings;
+            if (path is FilePath filePath)
+            {
+                return filePath.MakeAbsolute(envoriment).FullPath.Replace("/", "\\");
+            }
+
+            if (path is DirectoryPath directoryPath)
+            {
+                return directoryPath.MakeAbsolute(envoriment).FullPath.Replace("/", "\\");
+            }
+
+            throw new ArgumentOutOfRangeException("path", "Should be FilePath or DirectoryPath");
         }
 
         /// <summary>
-        /// The settings are supplied to set additionally parameter of <see cref="ToolSettings" />.
+        /// Makes the path absolute (if relative) using the current working directory and quotes it.
         /// </summary>
-        /// <param name="action">Action to make additional configuration of the settings.</param>
-        /// <returns>The FluentSPCAFSettings instance for fluent re-use.</returns>
-        public FluentSPCAFSettings WithSettings(Action<SPCAFSettings> action)
+        /// <param name="path">The path.</param>
+        /// <param name="envoriment">The enviroment.</param>
+        /// <returns>An absolute path - quoted.</returns>
+        internal static string AbsolutePathQuoted(Path path, ICakeEnvironment envoriment)
         {
-            action(this.settings);
-            return this;
+            return CakePath.AbsolutePath(path, envoriment).Quote();
         }
     }
 }
