@@ -18,7 +18,7 @@
         <Description>Alias to assist with running SPCAF from Cake build scripts</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/juro-org/Cake.SPCAF</PackageProjectUrl>
-        <PackageTags>cake;addin;build;cake-build;cake-addin;spcaf</PackageTags>
+        <PackageTags>cake;addin;build;cake-build;cake-addin;spcaf;sharepoint</PackageTags>
         <RepositoryUrl>https://github.com/juro-org/Cake.SPCAF.git</RepositoryUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageReleaseNotes>https://github.com/juro-org/Cake.SPCAF/releases/tag/$(Version)</PackageReleaseNotes>
