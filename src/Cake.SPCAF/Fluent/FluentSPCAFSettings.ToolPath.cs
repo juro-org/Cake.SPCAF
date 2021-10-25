@@ -27,8 +27,8 @@ namespace Cake.SPCAF
     /// <summary>
     /// Wrapper for SPCAFSetting to generate fluent api.
     /// </summary>
-    public partial class FluentSPCAFSettings {
-
+    public partial class FluentSPCAFSettings
+    {
         /// <summary>
         /// Sets the tool path.
         /// </summary>

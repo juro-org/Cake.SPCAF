@@ -20,10 +20,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using Cake.Core.IO;
-
 namespace Cake.SPCAF
 {
+    using Cake.Core.IO;
+
     /// <summary>
     /// Wrapper for SPCAFSetting to generate fluent api.
     /// </summary>
