@@ -44,8 +44,10 @@ namespace Cake.SPCAF.Tests
         }
 
         [Test]
+        [Platform("Win", Reason = "Runs only under Windows because of the comparisons of absolute paths.")]
         public void SPCAF_SimpleDemo()
         {
+            
             var fixture = new SPCAFAliasesFixture();
 
             //spcaf.exe -i "C:\wspfiles" -r "HTML;XML" -o "C:\outputdir\outputfilename.html"
