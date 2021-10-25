@@ -16,16 +16,31 @@
         <Authors>Jürgen Rosenthal-Buroh</Authors>
         <Copyright>Copyright © $(FullYear) — Jürgen Rosenthal-Buroh</Copyright>
         <Description>Alias to assist with running SPCAF from Cake build scripts</Description>
-        <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/juro-org/Cake.SPCAF</PackageProjectUrl>
-        <PackageTags>cake;addin;spcaf</PackageTags>
+        <PackageTags>cake;addin;build;cake-build;cake-addin;spcaf</PackageTags>
         <RepositoryUrl>https://github.com/juro-org/Cake.SPCAF.git</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageReleaseNotes>https://github.com/juro-org/Cake.SPCAF/releases/tag/$(Version)</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
+        <None Include="$(ProjectDir)../../README.md" Link="README.md" PackagePath="" Pack="true" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+            <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+            <!-- We use the value of AssemblyName to declare the value of the attribute -->
+        </AssemblyAttribute>
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Cake.Core" Version="1.0.0" PrivateAssets="All" />
+        <PackageReference Include="CakeContrib.Guidelines" Version="1.1.2">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="stylecop.analyzers" Version="1.1.118">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>

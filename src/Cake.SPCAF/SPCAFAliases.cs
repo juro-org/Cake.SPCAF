@@ -24,19 +24,35 @@
 
 namespace Cake.SPCAF
 {
+    using System;
     using Cake.Core;
     using Cake.Core.Annotations;
-    using Cake.Core.IO;
 
+    /// <summary>
+    /// Provides a wrapper around SPCAF functionality within a Cake build script.
+    /// </summary>
     [CakeAliasCategory("SPCAF")]
     public static class SPCAFAliases
     {
+        /// <summary>
+        /// Get SPCAF runner for fluent configuration.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="config">The fluent configuration action.</param>
         [CakeMethodAlias]
-        public static void SPCAF(this ICakeContext context)
+        public static void SPCAF(this ICakeContext context, Action<FluentSPCAFSettings> config)
         {
-            SPCAF(context, new SPCAFSettings());
+            var settings = new SPCAFSettings();
+            var fluentSettings = new FluentSPCAFSettings(settings);
+            config(fluentSettings);
+            SPCAF(context, settings);
         }
 
+        /// <summary>
+        /// Get SPCAF runner.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="settings">the settings.</param>
         [CakeMethodAlias]
         public static void SPCAF(this ICakeContext context, SPCAFSettings settings)
         {
