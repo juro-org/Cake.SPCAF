@@ -23,7 +23,7 @@ issue-labels-include:
   - Documentation
   - security
 issue-labels-exclude:
-  - Build
+  - Dependency
   - Internal / Refactoring
 issue-labels-alias:
   - name: Documentation
