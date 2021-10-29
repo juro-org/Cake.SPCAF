@@ -31,7 +31,7 @@ namespace Cake.SPCAF
     /// <summary>
     /// Provides a wrapper around SPCAF functionality within a Cake build script.
     /// </summary>
-    [CakeAliasCategory("SPCAF")]
+    [CakeAliasCategory("SharePoint")]
     public static class SPCAFAliases
     {
         /// <summary>
@@ -39,6 +39,7 @@ namespace Cake.SPCAF
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="config">The fluent configuration action.</param>
+        [CakeAliasCategory("SPCAF")]
         [CakeMethodAlias]
         public static void SPCAF(this ICakeContext context, Action<FluentSPCAFSettings> config)
         {
@@ -53,6 +54,7 @@ namespace Cake.SPCAF
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">the settings.</param>
+        [CakeAliasCategory("SPCAF")]
         [CakeMethodAlias]
         public static void SPCAF(this ICakeContext context, SPCAFSettings settings)
         {
