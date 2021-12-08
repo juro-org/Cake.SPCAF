@@ -2,6 +2,7 @@
 
 [![standard-readme compliant][]][standard-readme]
 [![NuGet package][nugetimage]][nuget]
+[![Cake][cakeimage]][cake]
 
 Alias to assist with running SPCAF from Cake build scripts
 
@@ -66,3 +67,5 @@ Small note: If editing the Readme, please conform to the [standard-readme][] spe
 [license]: LICENSE.txt
 [standard-readme]: https://github.com/RichardLitt/standard-readme
 [standard-readme compliant]: https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square
+[cakeimage]: https://img.shields.io/static/v1?label=cake&message=v2.0.0&color=8E7D3E&style=flat-square
+[cake]: https://cakebuild.net/blog/2021/11/cake-v2.0.0-released
