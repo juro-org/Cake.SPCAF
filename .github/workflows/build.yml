@@ -28,7 +28,7 @@ jobs:
         run: git fetch --prune --unshallow
         
       - name: Install .NET SDK
-        uses: actions/setup-dotnet@v3.0.1
+        uses: actions/setup-dotnet@v3.0.2
         with:          
           # all SDKs the project is targeting + codecov and unittests need 2.1
           dotnet-version: |
